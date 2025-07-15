@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List | ProductHub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">📝 ProductHub – Tasks</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <button id="toggleMode">🌙</button>
+    </nav>
+  </header>
+
+  <main class="main">
+  <div class="todo-app">
+    <h2>✅ Your Smart Task List</h2>
+
+    <div class="todo-input-group">
+      <input type="text" id="taskInput" placeholder="Add a task..." />
+      <select id="priorityInput">
+        <option value="low">🟢 Low</option>
+        <option value="medium">🟡 Medium</option>
+        <option value="high">🔴 High</option>
+      </select>
+      <button id="addBtn" title="Add Task">➕</button>
+    </div>
+
+    <ul id="taskList" class="task-list"></ul>
+
+    <div class="task-footer">
+      <p id="taskStats">0 of 0 tasks completed</p>
+    </div>
+  </div>
+</main>
+
+
+  <footer class="footer">
+    <p>© 2025 ProductHub. Built with 💙 by Poojitha Thatipudi.</p>
+  </footer>
+
+  <script src="todo.js"></script>
+</body>
+</html>

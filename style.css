@@ -1,0 +1,364 @@
+/* ========== ROOT VARIABLES ========== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1c1c1c;
+  --accent-color: #4f46e5;
+  --header-bg: #f8f8f8;
+}
+body.dark-mode {
+  --bg-color: #111827;
+  --text-color: #f3f4f6;
+  --header-bg: #1f2937;
+}
+
+/* ========== GLOBAL ========== */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+a {
+  text-decoration: none;
+}
+button {
+  font-family: inherit;
+}
+
+/* ========== HEADER & NAV ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--header-bg);
+}
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.nav a,
+.nav button {
+  margin-left: 1rem;
+  color: var(--text-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ========== HERO SECTION (index.html) ========== */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(to right, #f8fafc, #e0ecff);
+  border-bottom: 1px solid #e5e7eb;
+}
+.dark-mode .hero {
+  background: linear-gradient(to right, #1f2937, #111827);
+}
+.hero-content {
+  max-width: 500px;
+  animation: fadeSlide 0.8s ease;
+}
+.hero-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+.hero-img img {
+  width: 100%;
+  max-width: 300px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.highlight {
+  color: var(--accent-color);
+}
+
+/* ========== BUTTONS ========== */
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.primary {
+  background-color: var(--accent-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+.primary:hover {
+  background-color: #3e3aed;
+}
+.outline {
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}
+.outline:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* ========== TOOLTIPS ========== */
+.tooltip-wrapper,
+.icon-tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  background-color: #444;
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.tooltip-wrapper:hover .tooltip,
+.icon-tooltip:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip-wrapper .tooltip {
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.icon-tooltip .tooltip {
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ========== PRODUCTS PAGE ========== */
+.section-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section-heading input {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 1rem;
+  width: 80%;
+  max-width: 400px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+.product-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+.product-card:hover {
+  transform: scale(1.03);
+}
+.product-img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.product-hover {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #444;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+.product-img-wrapper:hover .product-hover {
+  visibility: visible;
+  opacity: 1;
+}
+.product-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+.product-img-wrapper:hover .product-img {
+  transform: scale(1.05);
+}
+.dark-mode .product-card {
+  background: #1f2937;
+  color: white;
+}
+
+/* ========== TO-DO PAGE ========== */
+.todo-app {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+.todo-app h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+.todo-input-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.todo-input-group input,
+.todo-input-group select {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.todo-input-group select {
+  width: 120px;
+}
+.todo-input-group button {
+  font-size: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+.task-item {
+  background: #f0f0f0;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+.task-item:hover {
+  transform: scale(1.01);
+}
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+.task-text {
+  margin-left: 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.task-text.done {
+  text-decoration: line-through;
+  color: #999;
+}
+.task-actions button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-left: 0.4rem;
+  cursor: pointer;
+}
+.tooltip-btn:hover {
+  color: var(--accent-color);
+}
+.fade-in {
+  animation: fadeSlide 0.4s ease;
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.dark-mode .task-item {
+  background: #1f2937;
+  color: white;
+}
+.task-footer {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+.task-item.low .priority-tag { color: green; }
+.task-item.medium .priority-tag { color: orange; }
+.task-item.high .priority-tag { color: red; }
+.priority-tag {
+  font-size: 0.8rem;
+  margin-left: auto;
+  margin-right: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--header-bg);
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .todo-input-group {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .section-heading input {
+    width: 100%;
+  }
+}
